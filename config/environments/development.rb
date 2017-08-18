@@ -8,7 +8,8 @@ Rails.application.configure do
   config.cache_classes = false
 
   # mailer default host
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -61,8 +62,8 @@ Rails.application.configure do
       :address => "smtp.gmail.com",
       :port => 587,
       :domain => 'smtp.gmail.com',
-      :user_name => ENV['GMAIL'] || 'xxxxxxx@gmail.com', #gmailアドレス
-      :password => ENV['GMAIL_PASS'] || 'xxxxxxxxxx', #gmailパスワード
-      :authentication => 'login',
+      :user_name => ENV['GMAIL'],
+      :password => ENV['GMAIL_PASS'],
+      :authentication => 'plain',
   }
 end
