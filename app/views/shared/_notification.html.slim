@@ -1,0 +1,3 @@
+- if flash[:notice] || flash[:alert]
+  - flash.each do |key, value|
+    = content_tag :div, value, class_name: key
