@@ -4,10 +4,6 @@ $(document).ready ->
     url: '/api/maps/get_location'
     type: 'GET'
     success: (data)->
-      console.log data
-      # data = data.replace('[', '')
-      # data = data.replace(']', '')
-      # data = data.split(',')
       initializeMap(data)
 
 initializeMap = (data) ->
