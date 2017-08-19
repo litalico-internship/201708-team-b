@@ -1,9 +1,8 @@
+= stylesheet_link_tag "https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+= javascript_include_tag "https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+= javascript_include_tag "root_mapping"
+
 body.w3-light-grey
-  .w3-bar.w3-black.w3-hide-small
-    a.w3-bar-item.w3-button href="#"
-      | ログイン
-    a.w3-bar-item.w3-button href="#"
-      | 登録
   .w3-content style="max-width:1600px"
     header.w3-container.w3-center.w3-padding-48.w3-white
       h1.w3-xxxlarge
@@ -11,7 +10,5 @@ body.w3-light-grey
       h6
         | メンターを見つけよう！
 
-h1 Home#index
-
-h2
-  = link_to '登録', new_user_session_path
+container style="padding: 20px;"
+  #map style="width: 80%; height: 550px; margin: auto;"

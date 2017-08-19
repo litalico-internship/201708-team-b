@@ -1,5 +1,6 @@
 module Evaluation
   def self.evaluation(value)
+    value >= 7
     if value >= 7
       return true
     end
