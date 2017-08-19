@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'likes/add_favorite'
+
+  get 'likes/destroy_favorite'
+
+  get 'users/show'
+
   devise_for :users
 
   root 'home#index'
@@ -6,6 +12,13 @@ Rails.application.routes.draw do
   resources :tests, only: [:index]
   resources :top, only: [:index]
   resources :auto_matches, only: [:show]
+  resources :users do
+    # resources :likes, only: [:create, :update]
+  end
+
+  post '/users/:user_id/likes', to: 'likes#delete_likes', as: :delete
+  post '/users/:user_id/likes', to: 'likes#add_likes', as: :add_likes
+  
 
   devise_scope :user do
     delete 'users/logout', to: 'devise/sessions#destroy'

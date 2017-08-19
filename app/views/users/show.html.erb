@@ -1,0 +1,11 @@
+<%= @user.name %>
+
+<span>
+  like count <%= @likes.to_i %>
+  <%= button_to add_likes_path(@user),method: :add_likes do %>
+    <span>ありがとう</span>
+  <% end %>
+  <%= button_to delete_path(@user), method: :delete_likes do %>
+    <span>ありがとうを取り消す</span>
+  <% end %>
+</span>
