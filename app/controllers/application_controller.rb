@@ -12,4 +12,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :age, :location, :sexuality, :name, :icon_image, :description]) 
   end
 
+  private
+
+    def after_sign_in_path_for(resource)
+      '/auto_matches/show'
+    end
+
 end
