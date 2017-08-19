@@ -8,7 +8,7 @@ class DirectMessageChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    DirectMessage.create(text: data['message'], sender_id: params[:sender_id], receiver_id: params[:receiver_id])
+    DirectMessage.create(text: data['message']['text'], sender_id: data['message']['sender_id'], receiver_id: data['message']['receiver_id'])
     ActionCable.server.broadcast "direct_message_#{params[:sender_id]}_#{params[:receiver_id]}", message: data['message']
   end
 end
