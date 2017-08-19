@@ -1,0 +1,16 @@
+<header>
+  <div>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if !user_signed_in? %>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><%= link_to "登録", new_user_registration_path %></li>
+        <% end %>
+        <% if user_signed_in? %>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <% end %>
+        <li><%= link_to "Home", root_path %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
