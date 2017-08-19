@@ -8,4 +8,5 @@
     label message
     input#message_field type='text' data-bahavior='direct_message_speaker'
     input#receiver_id type='hidden' value=@receiver.id
+    input#sender_id type='hidden' value=current_user.id
     input#message_submit type='submit'

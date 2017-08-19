@@ -3,11 +3,15 @@ class PermissionController < ApplicationController
 
   class NotPermissionError < StandardError; end
 
+  rescue_from NotPermissionError do
+    redirect_to root_path, alert: "You can't do it"
+  end
+
   def confirm_user(resource)
     if resource.class.name == 'User'
-      raise NotPermissionError, "You can't do it" if current_user != resource
+      raise NotPermissionError if current_user != resource
     else
-      raise NotPermissionError, "You can't do it" if current_user != resource.user
+      raise NotPermissionError if current_user != resource.user
     end
   end
 end
