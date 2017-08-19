@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 20170819070904) do
     t.index ["sender_id"], name: "index_direct_messages_on_sender_id"
   end
 
+  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.text "description"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
