@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+  prefectures = Constants::PREFECTURES
+  prefectures.each_with_index do |i, p|
+    User.create(name: 'seed', nickname: 'test', email: "#{p}@seed.com", age: '15', sexuality: 1, location: i[1], password: "#{p}pass")
+  end
