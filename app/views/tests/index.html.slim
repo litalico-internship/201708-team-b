@@ -1,1 +1,83 @@
-h1 tests#index
+body.w3-light-grey
+  .w3-content style="max-width:1600px"
+    header.w3-container.w3-center.w3-padding-30.w3-white
+      h1.w3-xxxlarge
+        b 診断テスト
+      h6
+        |　あなたの〇〇がわかります
+
+= form_tag "/tests", method: :post do
+  p.w3-center
+    | 問1：自分が「かっこいい」と言われた場合、嬉しいですか？
+    br
+    = radio_button_tag "result[1]", 1
+    |  嬉しい
+    = radio_button_tag "result[1]", 0
+    |  嬉しくない
+  p.w3-center
+    | 問2：「男らしい」や「女らしくない」と言われたことはありますか？
+    br
+    = radio_button_tag "result[2]", 1
+    |  ある
+    = radio_button_tag "result[2]", 0
+    |  ない
+  p.w3-center
+    | 問3：思い付きで計画的じゃなく、遠くに旅行やドライブに行くのは嫌いですか？
+    br
+    = radio_button_tag "result[3]", 1
+    |  嫌い
+    = radio_button_tag "result[3]", 0
+    |  好き
+  p.w3-center
+    | 問4：色の付いたペンを１０色以上持っていますか？(趣味、仕事は除きます)
+    br
+    = radio_button_tag "result[4]", 1
+    |  持っていない
+    = radio_button_tag "result[4]", 0
+    |  持っている
+  p.w3-center
+    | 問5：男性用の服を持っていますか？
+    br
+    = radio_button_tag "result[5]", 1
+    |  持っている　
+    = radio_button_tag "result[5]", 0
+    |  持ってない
+  p.w3-center
+    | 問6：女性の服の値段と男性の服の値段を比較したとき、男性の服のほうが安いと思ったことが１回でもありますか？
+    br
+    = radio_button_tag "result[6]", 1
+    |  ある　
+    = radio_button_tag "result[6]", 0
+    |  ない
+  p.w3-center
+    | 問7：中学生時代、英語が好きでしたか？
+    br
+    = radio_button_tag "result[7]", 1
+    | 好きではない
+    = radio_button_tag "result[7]", 0
+    |  好き
+  p.w3-center
+    | 問8：中学生時代、音楽の授業は好きでしたか？
+    br
+    = radio_button_tag "result[8]", 1
+    |  好きではない
+    = radio_button_tag "result[8]", 0
+    |  好き
+  p.w3-center
+    | 問9：「ショッピング」が好きですか？
+    br
+    = radio_button_tag "result[9]", 1
+    |  好きではない
+    = radio_button_tag "result[9]", 0
+    |  好き
+  p.w3-center
+    | 問10：「和菓子」と「洋菓子」のどっちが好きですか？
+    br
+    = radio_button_tag "result[10]", 1
+    |  和菓子　
+    = radio_button_tag "result[10]", 0
+    |  洋菓子
+
+  p.w3-center
+    = submit_tag "送信しました"
+
