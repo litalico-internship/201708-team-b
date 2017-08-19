@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'home#index'
+
   resources :tests, only: [:index]
   resources :top, only: [:index]
   resources :auto_matches, only: [:show]
@@ -12,3 +13,4 @@ Rails.application.routes.draw do
     end
   end
 end
+
