@@ -4,4 +4,12 @@ class User < ApplicationRecord
   # TODO: mail認証をする時にconfirmable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  validates :nickname, presence: true
+  validates :age, presence: true
+  validates :location, presence: true
+  validates :sexuality, presence: true
+
+  has_many :direct_messages
+
+  enum sexuality: %w(lesbian gay bisexual mtof ftom etc)
 end
