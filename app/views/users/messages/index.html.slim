@@ -1,1 +1,11 @@
-h1 messages#index
+#message_index
+  #message_list
+    - @messages.each do |message|
+      div class="each_message"
+        = message.text
+
+  form.message_form
+    label message
+    input#message_field type='text' data-bahavior='direct_message_speaker'
+    input#receiver_id type='hidden' value=@receiver.id
+    input#message_submit type='submit'
