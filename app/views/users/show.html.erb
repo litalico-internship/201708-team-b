@@ -1,15 +1,17 @@
 <%= @user.name %>
 
-<span>
+<div>
   like count <%= @likes_count %>
-  <% if @user.like_user(current_user.id) %>
-    <%= button_to user_like_path(@likes, target_id: @user.id), method: :delete do %>
-      <span>ありがとうを取り消す</span>
-    <% end %>
-  <% else %>
-    <%= button_to user_likes_path(@user) do %>
-      <span>ありがとう</span>
+  <% if current_user.id != @user.id %>
+    <% if @user.like_user(current_user.id) %>
+      <%= button_to user_like_path(@likes, target_id: @user.id), method: :delete do %>
+        <span>ありがとうを取り消す</span>
+      <% end %>
+    <% else %>
+      <%= button_to user_likes_path(@user) do %>
+        <span>ありがとう</span>
+      <% end %>
     <% end %>
   <% end %>
 
-</span>
+</div>
