@@ -1,6 +1,7 @@
 receiver_id = $('#receiver_id').val()
 sender_id = $('#sender_id').val()
 App.direct_message = App.cable.subscriptions.create { channel: "DirectMessageChannel", receiver_id: receiver_id, sender_id: sender_id },
+  console.log('dd')
   connected: ->
 
   disconnected: ->
@@ -13,7 +14,7 @@ App.direct_message = App.cable.subscriptions.create { channel: "DirectMessageCha
     $('#message_list').append(html)
 
   buildMessage: (data) ->
-    "<div class='each_message'>" + data['message']['text'] + "</div>"
+    "<div class='each_message'>" + data['message'] + "</div>"
 
   speak: (text, receiver_id, sender_id) ->
     @perform 'speak', message: { text: text, receiver_id: receiver_id, sender_id: sender_id }
