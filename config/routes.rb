@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
-  get 'home/index'
-
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'home#index'
+
+  resources :tests, only: [:index]
+  resources :top, only: [:index]
+  resources :auto_matches, only: [:show]
+
+  scope module: :users do
+    resources :users, only: [] do
+      resources :messages, only: [:index]
+    end
+  end
 end
+
