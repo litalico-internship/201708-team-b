@@ -1,339 +1,83 @@
-form[method="post"]
-  p
+body.w3-light-grey
+  .w3-content style="max-width:1600px"
+    header.w3-container.w3-center.w3-padding-30.w3-white
+      h1.w3-xxxlarge
+        b 診断テスト
+      h6
+        |　あなたの〇〇がわかります
+
+= form_tag "/tests", method: :post do
+  p.w3-center
     | 問1：自分が「かっこいい」と言われた場合、嬉しいですか？
     br
-    input[type="radio" name="q1" value="１"]
-    |  嬉しい 
-    input[type="radio" name="q1" value="0"]
-    |  嬉しくない 
-  p
+    = radio_button_tag "result[1]", 1
+    |  嬉しい
+    = radio_button_tag "result[1]", 0
+    |  嬉しくない
+  p.w3-center
     | 問2：「男らしい」や「女らしくない」と言われたことはありますか？
     br
-    input[type="radio" name="q2" value="1"]
-    |  ある 
-    input[type="radio" name="q2" value="0"]
-    |  ない 
-  p
+    = radio_button_tag "result[2]", 1
+    |  ある
+    = radio_button_tag "result[2]", 0
+    |  ない
+  p.w3-center
     | 問3：思い付きで計画的じゃなく、遠くに旅行やドライブに行くのは嫌いですか？
     br
-    input[type="radio" name="q3" value="1"]
-    |  嫌い 
-    input[type="radio" name="q3" value="0"]
-    |  好き 
-  p
+    = radio_button_tag "result[3]", 1
+    |  嫌い
+    = radio_button_tag "result[3]", 0
+    |  好き
+  p.w3-center
     | 問4：色の付いたペンを１０色以上持っていますか？(趣味、仕事は除きます)
     br
-    input[type="radio" name="q4" value="１"]
-    |  持っていない 
-    input[type="radio" name="q4" value="0"]
-    |  持っている 
-  p
+    = radio_button_tag "result[4]", 1
+    |  持っていない
+    = radio_button_tag "result[4]", 0
+    |  持っている
+  p.w3-center
     | 問5：男性用の服を持っていますか？
     br
-    input[type="radio" name="q5" value="1"]
-    |  持っている　 
-    input[type="radio" name="q5" value="0"]
-    |  持ってない 
-  p
+    = radio_button_tag "result[5]", 1
+    |  持っている　
+    = radio_button_tag "result[5]", 0
+    |  持ってない
+  p.w3-center
     | 問6：女性の服の値段と男性の服の値段を比較したとき、男性の服のほうが安いと思ったことが１回でもありますか？
     br
-    input[type="radio" name="q6" value="1"]
-    |  ある　 
-    input[type="radio" name="q6" value="0"]
-    |  ない 
-  p
+    = radio_button_tag "result[6]", 1
+    |  ある　
+    = radio_button_tag "result[6]", 0
+    |  ない
+  p.w3-center
     | 問7：中学生時代、英語が好きでしたか？
     br
-    input[type="radio" name="q7" value="１"]
-    | 好きではない 
-    input[type="radio" name="q7" value="0"]
-    |  好き 
-  p
+    = radio_button_tag "result[7]", 1
+    | 好きではない
+    = radio_button_tag "result[7]", 0
+    |  好き
+  p.w3-center
     | 問8：中学生時代、音楽の授業は好きでしたか？
     br
-    input[type="radio" name="q8" value="1"]
-    |  好きではない 
-    input[type="radio" name="q8" value="0"]
-    |  好き 
-  p
+    = radio_button_tag "result[8]", 1
+    |  好きではない
+    = radio_button_tag "result[8]", 0
+    |  好き
+  p.w3-center
     | 問9：「ショッピング」が好きですか？
     br
-    input[type="radio" name="q9" value="1"]
-    |  好きではない 
-    input[type="radio" name="q9" value="0"]
-    |  好き 
-  p
+    = radio_button_tag "result[9]", 1
+    |  好きではない
+    = radio_button_tag "result[9]", 0
+    |  好き
+  p.w3-center
     | 問10：「和菓子」と「洋菓子」のどっちが好きですか？
     br
-    input[type="radio" name="q10" value="１"]
-    |  和菓子　 
-    input[type="radio" name="q10" value="0"]
-    |  洋菓子 
-  p
-    | 問11：「男性用のヘアーカラー剤」を使ったことはありますか？
-    br
-    input[type="radio" name="q11" value="1"]
-    |  ある　　　 
-    input[type="radio" name="q11" value="0"]
-    |  ない 
-  p
-    | 問12：手鏡を持ち歩いていますか？
-    br
-    input[type="radio" name="q12" value="1"]
-    |  持ち歩いていない　 
-    input[type="radio" name="q12" value="0"]
-    |  持ち歩いている 
-  p
-    | 問13：英語の授業は好きでしたか？
-    br
-    input[type="radio" name="q13" value="１"]
-    |  嫌い 
-    input[type="radio" name="q13" value="0"]
-    |  好き 
-  p
-    | 問14：１回でも「ボーイッシュ系」と言われたことがありますか？
-    br
-    input[type="radio" name="q14" value="1"]
-    |  ある 
-    input[type="radio" name="q14" value="0"]
-    |  ない 
-  p
-    | 問15：自分のことを「恋愛を引きずらないサバサバした性格」だと思う？
-    br
-    input[type="radio" name="q15" value="1"]
-    |  思わない 
-    input[type="radio" name="q15" value="0"]
-    |  思う 
-  p
-    | 問16：買い物の際には、エコバッグを使用していますか？
-    br
-    input[type="radio" name="q16" value="１"]
-    |  使用していない 
-    input[type="radio" name="q16" value="0"]
-    |  使用している 
-  p
-    | 問17：ファッションで「男らしさ」を意識しますか？
-    br
-    input[type="radio" name="q17" value="1"]
-    |  意識する 
-    input[type="radio" name="q17" value="0"]
-    |  意識しない 
-  p
-    | 問18：中学生時代の好きな教科ベスト３に「体育」が入っていましたか？
-    br
-    input[type="radio" name="q18" value="1"]
-    | 入っていない 
-    input[type="radio" name="q18" value="0"]
-    | 入っている 
-  p
-    | 問19：１クールあるドラマの１つ以上をかかさず見ていますか？
-    br
-    input[type="radio" name="q19" value="１"]
-    | 見ていない 
-    input[type="radio" name="q19" value="0"]
-    |  見ている 
-  p
-    | 問20：女性のインナーを着ますか？
-    br
-    input[type="radio" name="q20" value="1"]
-    |  着ない 
-    input[type="radio" name="q20" value="0"]
-    |  着る 
-  p
-    | 問21：自分の家には、女の子が置いていそうな可愛い家具がありますか？
-    br
-    input[type="radio" name="q21" value="1"]
-    |  ない 
-    input[type="radio" name="q21" value="0"]
-    |  ある 
-  p
-    | 問22：少年漫画を普通にコーナーで立ち読みしますか？
-    br
-    input[type="radio" name="q22" value="１"]
-    |  立ち読みする　 
-    input[type="radio" name="q22" value="0"]
-    |  立ち読みしない 
-  p
-    | 問23：男性用のブーツや革靴、スニーカーを日常的に使用していますか？
-    br
-    input[type="radio" name="q23" value="1"]
-    |  日常的にしている　　　 
-    input[type="radio" name="q23" value="0"]
-    |  していない 
-  p
-    | 問24：ケーキを見た時のあなたの最初の感想はＡとＢのどっち？
-    br
-    input[type="radio" name="q24" value="1"]
-    |  おいしそう　 
-    input[type="radio" name="q24" value="0"]
-    |  かわいい 
-  p
-    | 問25：ランチ代は、700円以上で、外食ですか？
-    br
-    input[type="radio" name="q25" value="１"]
-    |  外食だが700円未満(コンビニやスーパーも含む) 
-    input[type="radio" name="q25" value="0"]
-    |  外食で700円以上 
-  p
-    | 問26：腕にメンズじゃないアクセサリーではないものをつけていますか？
-    br
-    input[type="radio" name="q26" value="1"]
-    |  つけない 
-    input[type="radio" name="q26" value="0"]
-    |  つけている 
-  p
-    | 問27：キラキラしたものは好きですか？
-    br
-    input[type="radio" name="q27" value="1"]
-    |  嫌い 
-    input[type="radio" name="q27" value="0"]
-    |  好き 
-  p
-    | 問28：友達に遊びの連絡をするとしたら男友達ですか？
-    br
-    input[type="radio" name="q28" value="１"]
-    |  はい 
-    input[type="radio" name="q28" value="0"]
-    |  いいえ 
-  p
-    | 問29：男友達と女友達のどちらが多いですか？
-    br
-    input[type="radio" name="q29" value="1"]
-    |  男友達　 
-    input[type="radio" name="q29" value="0"]
-    |  女友達 
-  p
-    | 問30：「夢追い人」ですか？
-    br
-    input[type="radio" name="q30" value="1"]
-    |  いいえ　 
-    input[type="radio" name="q30" value="-1"]
-    |  はい 
-  p
-    | 問31：恋愛を「リードされたい派」ですか？それとも「リードしたい派」ですか？
-    br
-    input[type="radio" name="q7" value="１"]
-    | リードしたい派 
-    input[type="radio" name="q7" value="-1"]
-    |  リードされたい派 
-  p
-    | 問32：ドラマを見るなら「恋愛」というジャンルを選びますか？
-    br
-    input[type="radio" name="q8" value="1"]
-    |  好きではない 
-    input[type="radio" name="q8" value="-1"]
-    |  好き 
-  p
-    | 問33：エッチなビデオを見るのは好きですか？
-    br
-    input[type="radio" name="q9" value="1"]
-    |  好き 
-    input[type="radio" name="q9" value="0"]
-    |  嫌い 
-  p
-    | 問10：「和菓子」と「洋菓子」のどっちが好きですか？
-    br
-    input[type="radio" name="q10" value="１"]
-    |  和菓子　 
-    input[type="radio" name="q10" value="0"]
-    |  洋菓子 
-  p
-    | 問11：「男性用のヘアーカラー剤」を使ったことはありますか？
-    br
-    input[type="radio" name="q11" value="1"]
-    |  ある　　　 
-    input[type="radio" name="q11" value="0"]
-    |  ない 
-  p
-    | 問12：手鏡を持ち歩いていますか？
-    br
-    input[type="radio" name="q12" value="1"]
-    |  持ち歩いていない　 
-    input[type="radio" name="q12" value="0"]
-    |  持ち歩いている 
-  p
-    | 問13：英語の授業は好きでしたか？
-    br
-    input[type="radio" name="q13" value="１"]
-    |  嫌い 
-    input[type="radio" name="q13" value="0"]
-    |  好き 
-  p
-    | 問14：１回でも「ボーイッシュ系」と言われたことがありますか？
-    br
-    input[type="radio" name="q14" value="1"]
-    |  ある 
-    input[type="radio" name="q14" value="0"]
-    |  ない 
-  p
-    | 問15：自分のことを「恋愛を引きずらないサバサバした性格」だと思う？
-    br
-    input[type="radio" name="q15" value="1"]
-    |  思わない 
-    input[type="radio" name="q15" value="0"]
-    |  思う 
-  p
-    | 問16：買い物の際には、エコバッグを使用していますか？
-    br
-    input[type="radio" name="q16" value="１"]
-    |  使用していない 
-    input[type="radio" name="q16" value="0"]
-    |  使用している 
-  p
-    | 問17：ファッションで「男らしさ」を意識しますか？
-    br
-    input[type="radio" name="q17" value="1"]
-    |  意識する 
-    input[type="radio" name="q17" value="0"]
-    |  意識しない 
-  p
-    | 問18：中学生時代の好きな教科ベスト３に「体育」が入っていましたか？
-    br
-    input[type="radio" name="q18" value="1"]
-    | 入っていない 
-    input[type="radio" name="q18" value="0"]
-    | 入っている 
-  p
-    | 問19：１クールあるドラマの１つ以上をかかさず見ていますか？
-    br
-    input[type="radio" name="q19" value="１"]
-    | 見ていない 
-    input[type="radio" name="q19" value="0"]
-    |  見ている 
-  p
-    | 問20：女性のインナーを着ますか？
-    br
-    input[type="radio" name="q20" value="1"]
-    |  着ない 
-    input[type="radio" name="q20" value="0"]
-    |  着る 
-  p
-    | 問21：自分の家には、女の子が置いていそうな可愛い家具がありますか？
-    br
-    input[type="radio" name="q21" value="1"]
-    |  ない 
-    input[type="radio" name="q21" value="0"]
-    |  ある 
-  p
-    | 問22：少年漫画を普通にコーナーで立ち読みしますか？
-    br
-    input[type="radio" name="q22" value="１"]
-    |  立ち読みする　 
-    input[type="radio" name="q22" value="0"]
-    |  立ち読みしない 
-  p
-    | 問23：男性用のブーツや革靴、スニーカーを日常的に使用していますか？
-    br
-    input[type="radio" name="q23" value="1"]
-    |  日常的にしている　　　 
-    input[type="radio" name="q23" value="0"]
-    |  していない 
-  p
-    | 問24：ケーキを見た時のあなたの最初の感想はＡとＢのどっち？
-    br
-    input[type="radio" name="q24" value="1"]
-    |  おいしそう　 
-    input[type="radio" name="q24" value="0"]
-    |  かわいい 
-  p
-    input[type="submit" value="送信する"]
+    = radio_button_tag "result[10]", 1
+    |  和菓子　
+    = radio_button_tag "result[10]", 0
+    |  洋菓子
+
+  p.w3-center
+    = submit_tag "送信しました"
+

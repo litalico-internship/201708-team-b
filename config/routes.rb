@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :tests, only: [:index]
+  resources :tests, only: [:index,:create]
   resources :top, only: [:index]
   resources :auto_matches, only: [:show]
 
