@@ -13,11 +13,11 @@ Rails.application.routes.draw do
   resources :top, only: [:index]
   resources :auto_matches, only: [:show]
   resources :users do
-    # resources :likes, only: [:create, :update]
+    resources :likes, only: [:create, :destroy]
   end
 
-  post '/users/:user_id/likes', to: 'likes#delete_likes', as: :delete
-  post '/users/:user_id/likes', to: 'likes#add_likes', as: :add_likes
+  post '/users/:user_id/likes/add', to: 'likes#delete_likes', as: :delete
+  post '/users/:user_id/likes/delete', to: 'likes#add_likes', as: :add_likes
   
 
   devise_scope :user do

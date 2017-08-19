@@ -1,15 +1,14 @@
 class LikesController < ApplicationController
-  def add_likes
-    like = User.find(params[:user_id].to_i).increment(:score)
-    like.save
-    @user = User.find(params[:user_id].to_i)
-    @likes = User.where(id: params[:user_id].to_i).select('score')[0].score
+  def create
+    @like = Like.create(user_id: current_user.id, target_id: params[:user_id])
+    @likes = Like.where(target_id: params[:user_id])
+    redirect_to request.referrer
   end
 
-  def delete_likes
-    like = User.find(params[:user_id].to_i).decrement(:score)
-    like.save
-    @user = User.find(params[:user_id].to_i)
-    @likes = User.where(id: params[:user_id].to_i).select('score')[0].score
+  def destroy
+    like = Like.find_by(user_id: current_user.id, target_id: params[:id])
+    like.destroy
+    @likes = Like.where(target_id: params[:user_id])
+    redirect_to request.referrer
   end
 end
