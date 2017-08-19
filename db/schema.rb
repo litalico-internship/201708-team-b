@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170819042849) do
+ActiveRecord::Schema.define(version: 20170819070904) do
 
   create_table "direct_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "text"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170819042849) do
     t.string "name"
     t.string "icon_image"
     t.text "description"
+    t.integer "score", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
