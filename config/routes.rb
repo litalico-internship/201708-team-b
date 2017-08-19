@@ -11,10 +11,13 @@ Rails.application.routes.draw do
     delete 'users/logout', to: 'devise/sessions#destroy'
   end
 
+  namespace :api do
+    get '/maps/get_location', action: :get_location, controller: :maps
+  end
+
   scope module: :users do
     resources :users, only: [] do
       resources :messages, only: [:index]
     end
   end
 end
-
