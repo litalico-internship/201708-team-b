@@ -13,7 +13,7 @@ h2
   .field
     = f.label :location
     br
-    = f.text_field :location
+    = f.select :location, Constants::PREFECTURES
   .field
     = f.label :sexuality
     br
