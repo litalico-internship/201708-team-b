@@ -17,7 +17,7 @@ h2
   .field
     = f.label :sexuality
     br
-    = f.text_field :sexuality
+    = f.select :sexuality, User.sexualities
   .field
     = f.label :name
     br
