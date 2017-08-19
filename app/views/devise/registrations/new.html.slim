@@ -17,7 +17,7 @@ h2
   .field
     = f.label :sexuality
     br
-    = f.select :sexuality, User.sexualities
+    = f.select :sexuality, User.sexualities.map {|k, v| [k, k]}
   .field
     = f.label :name
     br
