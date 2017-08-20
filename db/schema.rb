@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170820011756) do
-=======
-ActiveRecord::Schema.define(version: 20170819132734) do
->>>>>>> f358e375de3ae63cf25b96746f5b340d717d98c5
 
   create_table "direct_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "text"
@@ -25,8 +21,6 @@ ActiveRecord::Schema.define(version: 20170819132734) do
     t.index ["receiver_id"], name: "index_direct_messages_on_receiver_id"
     t.index ["sender_id"], name: "index_direct_messages_on_sender_id"
   end
-<<<<<<< HEAD
-=======
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -34,7 +28,6 @@ ActiveRecord::Schema.define(version: 20170819132734) do
     t.integer "user_id"
     t.integer "target_id"
   end
->>>>>>> f358e375de3ae63cf25b96746f5b340d717d98c5
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -61,12 +54,9 @@ ActiveRecord::Schema.define(version: 20170819132734) do
     t.string "icon_image"
     t.text "description"
     t.integer "score", default: 0
-<<<<<<< HEAD
     t.float "latitude", limit: 24
     t.float "longitude", limit: 24
-=======
     t.integer "likes_count", default: 0
->>>>>>> f358e375de3ae63cf25b96746f5b340d717d98c5
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

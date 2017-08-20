@@ -1,5 +1,6 @@
 = stylesheet_link_tag "https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
 = javascript_include_tag "https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+= javascript_include_tag "root_mapping"
 
 .panel-group
   .panel.panel-primary style="margin: auto; padding: 10px; width: 60%; margin-top: 20px;"
@@ -9,3 +10,18 @@
   .panel.panel-default style="margin: auto; padding: 10px; width: 60%; margin-top: 20px;"
     .panel-heading おすすめのセンパイ
     .panel-body
+      - if @recommended_user.present?
+        table.table.table-striped
+          thead
+            tr
+              td ニックネーム
+              td ありがとうスコア
+              td プロフィール
+              td 話してみる
+          - @recommended_user.each do |user|
+            tbody
+              tr
+                td = user.nickname
+                td = user.likes_count
+                td = link_to 'Profile', user_path(user.id), class: "btn btn-primary btn-md"
+                td = link_to 'Chat', user_messages_path(user.id), class: "btn btn-info btn-md"
