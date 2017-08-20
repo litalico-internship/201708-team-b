@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   class << self
     def get_recommended_users(user)
-      near_users = User.near(user.location)
+      near_users = User.where.not(id: user.id).near(user.location)
       near_users.order(likes_count: :desc).limit(3)
     end
   end
