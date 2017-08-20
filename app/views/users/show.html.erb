@@ -1,26 +1,39 @@
-<div>
-  <% if @user.icon_image.present? %>
-    <%= image_tag "user_icon#{@user.id}.jpeg", size: "150x150" %>
-  <% else %>
-    <%= image_tag 'human.jpeg', size: "150x150" %>
-  <% end %>
-
-  <p>名前 <%= @user.nickname %></p>
-  <p><%= @likes_count %>人からのありがとう</p>
-  <p><%= @user.age %></p>
-  <p><%= @user.sexuality %></p>
-  <p><%= @user.location %></p>
-  <p><%= @user.description %></p>
-  <% if current_user.id != @user.id %>
-    <% if @user.like_user(current_user.id) %>
-      <%= button_to user_like_path(@likes, target_id: @user.id), method: :delete do %>
-        <span>ありがとうを取り消す</span>
+<p>
+  <div class="row">
+  <div class="col-sm-4"> 
+    <p>
+      <% if @user.icon_image.present? %>
+        <%= image_tag "user_icon#{@user.id}.jpeg", size: "150x150" %>
+      <% else %>
+        <%= image_tag 'human.jpeg', size: "150x150" %>
       <% end %>
+    </p>
+  </div>
+  <div class="col-sm-4">
+  <div class="col-sm-8">名前<br/><%= @user.nickname %></div>
+  <div class="col-sm-8">年齢<br/><%= @user.age %></div>
+  <div class="col-sm-8">性志向<br/><%= @user.sexuality %></div>
+  <div class="col-sm-8">居住地<br/><%= @user.location %></div>
+  <div class="col-sm-8">自己紹介 
+    <% if @user.description.blank? %>
+      <br>まだ自己紹介を登録していません
     <% else %>
-      <%= button_to user_likes_path(@user) do %>
-        <span>ありがとう</span>
+      <%= @user.description %>
+    <% end %>
+  </div>
+  <div class="col-sm-10">
+    <% if current_user.id != @user.id %>
+      <% if @user.like_user(current_user.id) %>
+        <%= button_to user_like_path(@likes, target_id: @user.id), class: "btn btn-primary", method: :delete do %>
+          <span>ありがとうを取り消す</span>
+        <% end %>
+      <% else %>
+        <%= button_to user_likes_path(@user), class: "btn btn-primary" do %>
+          <span>ありがとう</span>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-  <%= link_to 'メッセージを送る', '#' %>
+    <%= link_to 'メッセージを送る', '#' %>
+  </div>
 </div>
+</p>
