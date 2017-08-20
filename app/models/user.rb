@@ -14,10 +14,15 @@ class User < ApplicationRecord
 
   enum sexuality: %w(lesbian gay bisexual mtof ftom etc)
 
+
   class << self
     def get_recommended_users(user)
       near_users = User.near(user.location)
       near_users.order(likes_count: :desc).limit(3)
     end
+
+  has_many :likes, dependent: :destroy
+  def like_user(user_id)
+    !!Like.find_by(user_id: user_id)
   end
 end
