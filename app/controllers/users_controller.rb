@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < PermissionController
   def show
     @user = User.find(params[:id])
     @likes = Like.where(target_id: params[:id])
