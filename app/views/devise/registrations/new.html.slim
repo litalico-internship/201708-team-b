@@ -1,52 +1,54 @@
-h2
-  | 登録
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+
+= form_for(resource,class: 'form-horizontal', as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
-  .field
-    = f.label :nickname
-    br
-    = f.text_field :nickname
-  .field
-    = f.label :age
-    br
-    = f.number_field :age
-  .field
-    = f.label :location
-    br
-    = f.select :location, Constants::PREFECTURES
-  .field
-    = f.label :sexuality
-    br
-    = f.select :sexuality, User.sexualities.map {|k, v| [k, k]}
-  .field
-    = f.label :name
-    br
-    = f.text_field :name
-  .field
-    = f.label :icon_image
-    br
-    = f.text_field :icon_image
-  .field
-    = f.label :description
-    br
-    = f.text_field :description
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    br
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
+  h2
+    | 登録
+  .control-group
+    .field
+      = f.label :nickname
+      br
+      = f.text_field :nickname
+    .field
+      = f.label :age
+      br
+      = f.number_field :age
+      .field
+      = f.label :location
+      br
+      = f.select :location, Constants::PREFECTURES
+    .field
+      = f.label :sexuality
+      br
+      = f.select :sexuality, User.sexualities.map {|k, v| [k, k]}
+    .field
+      = f.label :name
+      br
+      = f.text_field :name
+    .field
+      = f.label :icon_image
+      br
+      = f.text_field :icon_image
+    .field
+      = f.label :description
+      br
+      = f.text_field :description
+    .field
+      = f.label :email
+      br
+      = f.email_field :email, autofocus: true
+    .field
+      = f.label :password
+      - if @minimum_password_length
+        em
+          | (
+          = @minimum_password_length
+          |  characters minimum)
+      br
+      = f.password_field :password, autocomplete: "off"
+    .field
+      = f.label :password_confirmation
+      br
+      = f.password_field :password_confirmation, autocomplete: "off"
+    .actions
     = f.submit "Sign up"
 = render "devise/shared/links"
