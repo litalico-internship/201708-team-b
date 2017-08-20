@@ -5,7 +5,8 @@ header
         - if !user_signed_in?
           li = link_to 'ログイン', new_user_session_path
           li = link_to '登録', tests_path
+          li = link_to "Home", root_path
         - else
           li = link_to 'ログアウト', destroy_user_session_path, method: :delete
           li = link_to 'プロフィール', user_path(current_user.id)
-        li = link_to "Home", root_path
+          li = link_to 'Top', top_index_path
