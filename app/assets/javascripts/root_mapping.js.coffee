@@ -20,5 +20,16 @@ initializeMap = (data) ->
     data[0]
     data[1]
   ],
-    color: 'blue'
-    radius: 100000).addTo(mymap)
+    color: 'red'
+    radius: 80000).addTo(mymap)
+  $.ajax
+    url: '/api/users/get_all_users'
+    type: 'GET'
+    success: (data)->
+      initializeMarkers(data, mymap)
+
+initializeMarkers = (data, mymap) ->
+  _.each(data, (user, index, array) ->
+    marker = L.marker([user.latitude, user.longitude]).addTo(mymap)
+    marker.bindPopup("<b>" + user.nickname + "さん</b><br><a href='http://0.0.0.0:3000/users/" + user.id + "'>プロフィールを見る</a>")
+  )
