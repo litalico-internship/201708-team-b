@@ -6,6 +6,10 @@ p
           = image_tag @user.icon_image, size: "150x150"
         - else
           = image_tag 'human.jpeg', size: "150x150"
+      p
+        = @likes_count
+        | 人にありがとうされています
+
     .col-sm-5
       table style="margin: 30px;"
         tr
