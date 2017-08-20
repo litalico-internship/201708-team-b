@@ -1,13 +1,29 @@
 $(function() {
   function appendMessage(message) {
-    console.log('gsdfd');
     var html = buildMessageHtml(message);
     $('.messages_list').append(html);
   }
 
-  function buildMessageHtml(message) {
-    console.log('ddd');
-    var message = "<div class='each_message'><div class='message_text'>" + message['text'] + "</div></div>";
+  function buildMessageHtml(data) {
+    var message;
+
+    if (data['sender_id'] == $('.direct_message').data('current')) {
+      message = "<li class='my_each_message' style='width: 100%;'>" +
+                  "<div class='msj macro'>" +
+                    "<div class='message_text text text-l'>" +
+                      data['text'] +
+                    "</div>" +
+                  "</div>" +
+                "</li>";
+    } else {
+      message = "<li class='partner_each_message' style='width: 100%;'>" +
+                  "<div class='msj-rta macro'>" +
+                    "<div class='message_text text text-r'>" +
+                      data['text'] +
+                    "</div>" +
+                  "</div>" +
+                "</li>";
+    }
     return message;
   }
 
@@ -24,12 +40,13 @@ $(function() {
         data: {
           direct_message:
             {
-              text: inputText,
+              text: inputText
             }
         },
         context: this
       })
       .done(function(data) {
+        console.log(data);
         appendMessage(data);
         this.reset();
       });
