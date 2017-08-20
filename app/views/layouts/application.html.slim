@@ -9,6 +9,7 @@ html
     = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = render 'layouts/header'
+    - if controller.controller_name != 'direct_messages'
+      = render 'layouts/header'
     = render 'shared/notification'
     = yield
