@@ -1,0 +1,16 @@
+header
+  div
+    nav
+      ul.nav.navbar-nav.navbar-right
+        - if @messages.length != 0
+          li = link_to 'Top', top_index_path
+.messages_main
+  .messages_list
+    - @messages.each do |message|
+      .each_message
+        .message_text
+          = message.text
+
+  = form_for [@partner, @message], url: user_direct_messages_path do |f|
+    = f.text_field :text, id: 'message_field'
+    = f.submit '送信'

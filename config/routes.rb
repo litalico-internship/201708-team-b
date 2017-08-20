@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   scope module: :users do
     resources :users, only: [] do
-      resources :messages, only: [:index]
+      resources :direct_messages, only: [:index, :create]
     end
   end
 end

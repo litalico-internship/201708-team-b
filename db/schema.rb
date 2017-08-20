@@ -54,9 +54,9 @@ ActiveRecord::Schema.define(version: 20170820011756) do
     t.string "icon_image"
     t.text "description"
     t.integer "score", default: 0
+    t.integer "likes_count", default: 0
     t.float "latitude", limit: 24
     t.float "longitude", limit: 24
-    t.integer "likes_count", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
