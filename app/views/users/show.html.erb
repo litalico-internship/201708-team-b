@@ -1,7 +1,16 @@
-<%= @user.name %>
-
 <div>
-  like count <%= @likes_count %>
+  <% if !@user.icon_image.blank? %>
+    <%= image_tag "user_icon#{@user.id}.jpeg", size: "150x150" %>
+  <% else %>
+    <%= image_tag 'human.jpeg', size: "150x150" %>
+  <% end %>
+
+  <p>名前 <%= @user.nickname %></p>
+  <p><%= @likes_count %>人からのありがとう</p>
+  <p><%= @user.age %></p>
+  <p><%= @user.sexuality %></p>
+  <p><%= @user.location %></p>
+  <p><%= @user.description %></p>
   <% if current_user.id != @user.id %>
     <% if @user.like_user(current_user.id) %>
       <%= button_to user_like_path(@likes, target_id: @user.id), method: :delete do %>
@@ -13,5 +22,5 @@
       <% end %>
     <% end %>
   <% end %>
-
+  <%= link_to 'メッセージを送る', '#' %>
 </div>
