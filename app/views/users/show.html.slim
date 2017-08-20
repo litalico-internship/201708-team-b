@@ -43,11 +43,6 @@ p
                 | まだ自己紹介を登録していません
               - else
                 = @user.description
-        tr
-          th 居住地
-          th
-            h5
-              = @user.location
     .col-sm-10 style="margin: 20px;"
       - if current_user.id != @user.id
         - if @user.like_user(current_user.id)
