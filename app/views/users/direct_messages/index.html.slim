@@ -5,7 +5,6 @@
         .message_text
           = message.text
 
-
-  = form_for [@receiver, @message], url: user_direct_messages_path do |f|
+  = form_for [@partner, @message], url: user_direct_messages_path do |f|
     = f.text_field :text, id: 'message_field'
     = f.submit '送信'
