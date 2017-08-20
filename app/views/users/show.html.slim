@@ -1,43 +1,57 @@
 p
   .row
-    .col-sm-4
-      p
+    .col-sm-3
+      p style="margin: auto; padding: 10px; margin: 20px;"
         - if @user.icon_image.present?
           = image_tag @user.icon_image, size: "150x150"
         - else
           = image_tag 'human.jpeg', size: "150x150"
-    .col-sm-4
-      .col-sm-8
-        | 名前
-        br
-        = @user.nickname
-      .col-sm-8
-        | 年齢
-        br
-        = @user.age
-      .col-sm-8
-        | 性志向
-        br
-        = @user.sexuality
-      .col-sm-8
-        | 居住地
-        br
-        = @user.location
-      .col-sm-8
-        | 自己紹介
-        - if @user.description.blank?
-          br
-          | まだ自己紹介を登録していません
+    .col-sm-5
+      table style="margin: 30px;"
+        tr
+          th 名前
+          th
+            h4
+              b
+                = @user.nickname
+        tr
+          th 年齢
+          th
+            h5
+              = @user.age
+        tr
+          th 性志向
+          th
+            h6
+              = @user.sexuality
+        tr
+          th 居住地
+          th
+            h6
+              = @user.location
+        tr
+          th 自己紹介
+          th
+            h5
+              |
+              - if @user.description.blank?
+                br
+                | まだ自己紹介を登録していません
+              - else
+                = @user.description
+        tr
+          th 居住地
+          th
+            h5
+              = @user.location
+    .col-sm-10 style="margin: 20px;"
+      - if current_user.id != @user.id
+        - if @user.like_user(current_user.id)
+          = button_to user_like_path(@likes, target_id: @user.id), class: "btn btn-primary", method: :delete do
+            span
+              | ありがとうを取り消す
         - else
-          = @user.description
-      .col-sm-10
-        - if current_user.id != @user.id
-          - if @user.like_user(current_user.id)
-            = button_to user_like_path(@likes, target_id: @user.id), class: "btn btn-primary", method: :delete do
-              span
-                | ありがとうを取り消す
-          - else
-            = button_to user_likes_path(@user), class: "btn btn-primary" do
-              span
-                | ありがとう
-        = link_to 'メッセージを送る', '#'
+          = button_to user_likes_path(@user), class: "btn btn-primary" do
+            span
+              | ありがとう
+        = link_to 'メッセージを送る', user_direct_messages_path(@user), class: "btn btn-primary"
