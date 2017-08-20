@@ -8,4 +8,4 @@ h1 初めてのマッチング
     - else
       / TODO: ユーザーの写真
       p = "#{@target_user.nickname}さんと話してみましょう！"
-      p = link_to '話してみる', user_direct_messages_path(@user), class: 'btn btn-primary'
+      p = link_to '話してみる', user_direct_messages_path(@target_user), class: 'btn btn-primary'
