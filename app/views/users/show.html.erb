@@ -1,5 +1,5 @@
 <div>
-  <% if !@user.icon_image.blank? %>
+  <% if @user.icon_image.present? %>
     <%= image_tag "user_icon#{@user.id}.jpeg", size: "150x150" %>
   <% else %>
     <%= image_tag 'human.jpeg', size: "150x150" %>
