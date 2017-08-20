@@ -1,7 +1,7 @@
 <header>
   <div>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav nav-tabs">
         <% if !user_signed_in? %>
           <li><%= link_to "ログイン", new_user_session_path %></li>
           <li><%= link_to "登録", tests_path %></li>
