@@ -1,0 +1,11 @@
+h1 初めてのマッチング
+
+.row
+  .col-md-6.col-md-offset-3
+    p = "ようこそ！ #{@user.nickname}さん"
+    - if !@target_user
+      p マッチングに失敗しました
+    - else
+      / TODO: ユーザーの写真
+      p = "#{@target_user.nickname}さんと話してみましょう！"
+      p = link_to '話してみる', user_direct_messages_path(@user), class: 'btn btn-primary'

@@ -1,3 +1,9 @@
+header
+  div
+    nav
+      ul.nav.navbar-nav.navbar-right
+        - if @messages.length != 0
+          li = link_to 'Top', top_index_path
 .messages_main
   .messages_list
     - @messages.each do |message|
