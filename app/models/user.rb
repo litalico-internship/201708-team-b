@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :location, presence: true
   validates :sexuality, presence: true
 
-  has_many :direct_messages
+  has_many :direct_messages, foreign_key: :sender_id
 
   enum sexuality: %w(lesbian gay bisexual mtof ftom etc)
 

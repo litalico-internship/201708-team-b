@@ -7,7 +7,7 @@ module Users
     end
 
     def create
-      @message = DirectMessage.new(create_params)
+      @message = current_user.direct_messages.new(create_params)
       if @message.save
         render json: @message.to_json
       else
@@ -19,7 +19,7 @@ module Users
     private
 
     def create_params
-      params.require(:direct_message).permit(:text).merge(receiver_id: params[:user_id], sender_id: current_user.id)
+      params.require(:direct_message).permit(:text).merge(receiver_id: params[:user_id])
     end
 
     def set_context

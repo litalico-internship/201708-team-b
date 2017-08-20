@@ -13,7 +13,6 @@ $(function() {
 
   $(document).on('turbolinks:load', function(){
     $('#new_direct_message').on('submit', function(ev) {
-      console.log('dfaew');
       ev.preventDefault();
       var $textField = $('#message_field');
       var inputText = $textField.val();
