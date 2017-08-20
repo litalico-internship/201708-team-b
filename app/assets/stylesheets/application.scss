@@ -17,6 +17,11 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ @font-face {
+    font-family: 'ant-kaku';
+    src: url('/assets/fonts/ant-kaku.ttf') format('truetype')
+ }
+
 .form-signin {
   max-width: 330px;
   padding: 15px;
