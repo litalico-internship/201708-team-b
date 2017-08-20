@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170818152103) do
+ActiveRecord::Schema.define(version: 20170820011756) do
+
+  create_table "direct_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "text"
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_direct_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_direct_messages_on_sender_id"
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -29,6 +39,16 @@ ActiveRecord::Schema.define(version: 20170818152103) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nickname", null: false
+    t.integer "age", null: false
+    t.string "location", null: false
+    t.integer "sexuality", null: false
+    t.string "name"
+    t.string "icon_image"
+    t.text "description"
+    t.integer "score", default: 0
+    t.float "latitude", limit: 24
+    t.float "longitude", limit: 24
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

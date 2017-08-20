@@ -1,1 +1,11 @@
-h1 top#index
+= stylesheet_link_tag "https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+= javascript_include_tag "https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+
+.panel-group
+  .panel.panel-primary style="margin: auto; padding: 10px; width: 60%; margin-top: 20px;"
+    .panel-heading あなたの近くのナカマ
+    .panel-body
+      #map style="width: 70%; height: 550px; margin: auto; padding: 10px;"
+  .panel.panel-default style="margin: auto; padding: 10px; width: 60%; margin-top: 20px;"
+    .panel-heading おすすめのセンパイ
+    .panel-body
