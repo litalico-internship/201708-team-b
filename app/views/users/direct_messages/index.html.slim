@@ -4,14 +4,29 @@ header
       ul.nav.nav-tabs
         - if @messages.length != 0
           li = link_to 'Top', top_index_path
-.row
-  .messages_main
-    .messages_list
-      - @messages.each do |message|
-        .each_message
-          .message_text
-            = message.text
 
-    = form_for [@partner, @message], url: user_direct_messages_path do |f|
-      = f.text_field :text, id: 'message_field'
-      = f.submit '送信'
+.direct_message data-current=current_user.id
+  .col-sm-3.col-sm-offset.frame
+    .partner_info style="background-color: #ffadda;"
+      p = "#{@partner.name}さんとチャットしてみましょう"
+      p = "性志向: #{@partner.sexuality}"
+
+    ul.messages_list
+      - @messages.each do |message|
+        - if message.sender_id == current_user.id
+          li.my_each_message style="width: 100%;"
+            .msj.macro
+              .message_text.text.text-l
+                = message.text
+        - else
+          li.partner_each_message style="width: 100%;"
+            .msj-rta.macro
+              .message_text.text.text-r
+                p = message.text
+
+    .msj-rta.macro style="margin:auto"
+      .text.text-r style="background:whitesmoke !importnat"
+        = form_for [@partner, @message], url: user_direct_messages_path do |f|
+          .form-group
+            = f.text_field :text, id: 'message_field', class: 'mytext form-control', placeholder: 'Type a messag'
+          = f.submit '送信', class: 'btn btn-default'
