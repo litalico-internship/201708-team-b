@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     # auto_matchが完成したら
     # auto_match_path
-    top_index_path
+    # top_index_path
+    '/auto_matches/show'
   end
 
   def configure_permitted_parameters
