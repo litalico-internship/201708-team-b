@@ -1,5 +1,5 @@
 header
-  div
+  div.bg-primary
     nav
       ul.nav.nav-tabs
         - if @messages.length != 0
@@ -7,7 +7,7 @@ header
 
 .direct_message data-current=current_user.id
   .col-sm-3.col-sm-offset.frame
-    .partner_info style="background-color: #ffadda;"
+    .partner_info style="background-color: #FFADAD; border-radius: 15px; padding: 5px; margin: 5px;"
       p = "#{@partner.name}さんとチャットしてみましょう"
       p = "性志向: #{@partner.sexuality}"
 
@@ -25,7 +25,7 @@ header
                 p = message.text
 
     .msj-rta.macro style="margin:auto"
-      .text.text-r style="background:whitesmoke !importnat"
+      .text.text-r style="background:whitesmoke !important"
         = form_for [@partner, @message], url: user_direct_messages_path do |f|
           .form-group
             = f.text_field :text, id: 'message_field', class: 'mytext form-control', placeholder: 'Type a messag'
