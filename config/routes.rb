@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :tests, only: [:index,:create]
   resources :top, only: [:index]
-  resources :auto_matches, only: [:show]
+  resources :auto_matches, only: [:show], as: :auto_match
   resources :users do
     resources :likes, only: [:create, :destroy]
   end
